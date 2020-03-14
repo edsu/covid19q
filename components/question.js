@@ -10,28 +10,20 @@ const Question = ({id, screenName, text, avatar}) => {
       key={id} 
       className="question" 
       onClick={() => openTweet(screenName, id)}>
-      <div className="avatar">
-        <img src={avatar} title={screenName} />
-      </div>
-      <div className="text">
-        {text}
-      </div>
+      <img src={avatar} title={screenName} />
+      {text}
       <style jsx>{`
         .question {
-          margin: 10px;
+          margin: 20px;
           padding: 5px;
           font-size: 18pt;
-          display: flex;
           border: thin solid #ddd;
           cursor: pointer;
-          transition: 1s;
         }
-        .avatar img {
-          max-width: 100px;
-        }
-        .text {
-          align-self: flex-start;
-          margin-left: 20px;
+        img {
+          float: left;
+          margin-right: 10px;
+          vertical-align: bottom;
         }
       `}</style>
     </div>
