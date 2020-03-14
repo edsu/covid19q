@@ -1,4 +1,4 @@
-#covid19q
+# covid19q
 
 This webapp listens to Twitter for tweets that mention COVID_19 and displays
 them as they happen. To run it you will need to set some environment variables:
