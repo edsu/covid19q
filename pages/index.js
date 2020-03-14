@@ -2,7 +2,6 @@ import React from 'react'
 import Layout from '../components/layout'
 import Question from '../components/question'
 
-
 class Index extends React.Component {
 
   constructor(props) {
@@ -15,14 +14,12 @@ class Index extends React.Component {
   componentDidMount() {
     this.events = new EventSource('/questions')
     this.events.onmessage = (event) => {
-      if (scrollTop()) {
-        const q = JSON.parse(event.data)
-        const questions = [
-          q,
-          ...this.state.questions
-        ].slice(0, 20)
-        this.setState({questions})
-      }
+      const q = JSON.parse(event.data)
+      const questions = [
+        q,
+        ...this.state.questions
+      ].slice(0, 20)
+      this.setState({questions})
     }
   }
 
@@ -50,12 +47,6 @@ class Index extends React.Component {
     )
   }
 
-}
-
-function scrollTop() {
-  const e = document.getElementById('questions')
-  console.log(e.scrollTop)
-  return true
 }
 
 export default Index
