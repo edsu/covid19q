@@ -11,6 +11,7 @@
     "express": "^4.14.0",
     "next": "latest",
     "react": "^16.13.0",
-    "react-dom": "^16.13.0"
+    "react-dom": "^16.13.0",
+    "react-tweet-embed": "^1.2.2"
   }
 }
