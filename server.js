@@ -87,23 +87,28 @@ app.prepare().then(() => {
 })
 
 function getQuestion(t) {
-  let text = null
+  let tweetText = t.text
+  if (t.extended_tweet) {
+    tweetText = t.extended_tweet.full_text
+  }
+
+  let questionText = null
   if (! t.retweeted_status) {
-    const parts = t.text.split('.')
+    const parts = tweetText.split('.')
     for (const part of parts) {
       const question = part.match(/^(.+\?).*/)
       if (question) {
-        text = question[1]
+        questionText = question[1]
         break
       }
     }
   }
 
-  if (text) {
+  if (questionText) {
     return {
       id: t.id_str,
-      question: text,
-      text: t.text,
+      question: questionText,
+      text: tweetText,
       screenName: t.user.screen_name,
       avatar: t.user.profile_image_url_https
     }
