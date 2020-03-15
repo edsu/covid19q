@@ -110,7 +110,8 @@ function getQuestion(t) {
       question: questionText,
       text: tweetText,
       screenName: t.user.screen_name,
-      avatar: t.user.profile_image_url_https
+      avatar: t.user.profile_image_url_https,
+      lang: t.lang
     }
   } else {
     return null
